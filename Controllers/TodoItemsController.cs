@@ -116,5 +116,13 @@ namespace TodoApi.Controllers
         {
             return (_context.TodoItems?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+
+        private static TodoItemDTO ItemToDTO(TodoItem todoItem) =>
+           new TodoItemDTO
+           {
+               Id = todoItem.Id,
+               Name = todoItem.Name,
+               IsComplete = todoItem.IsComplete
+           };
     }
 }
